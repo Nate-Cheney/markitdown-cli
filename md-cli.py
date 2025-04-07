@@ -1,3 +1,4 @@
+#!/usr/local/lib/md-cli/.venv/bin/python
 from markitdown import MarkItDown # type: ignore
 from pathlib import Path
 import os

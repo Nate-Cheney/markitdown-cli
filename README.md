@@ -16,13 +16,14 @@ sed -i '1i #!/usr/local/lib/md-cli/.venv/bin/python' md-cli.py
 sudo cp md-cli.py /usr/local/bin/md-cli
 sudo chmod +x /usr/local/bin/md-cli
 
-# Create /usr/local/lib/md-cli/ and move requirements.txt
+# Create /usr/local/lib/md-cli/ and copy requirements.txt
 sudo mkdir /usr/local/lib/md-cli
-sudo mv requirements.txt /usr/local/lib/md-cli
+sudo cp requirements.txt /usr/local/lib/md-cli
 
 # Create & activate .venv and install dependencies
-python3 -m venv .venv
-source .venv/bin/activate
+cd /usr/local/lib/md-cli
+sudo python3 -m venv .venv
+sudo source .venv/bin/activate
 pip install -r requirements.txt
 
 # Install ffmpeg
