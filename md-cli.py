@@ -1,9 +1,8 @@
-#!/usr/local/lib/md-cli/.venv/bin/python
-from markitdown import MarkItDown # type: ignore
+from markitdown import MarkItDown
 from pathlib import Path
 import os
 import re
-import typer # type: ignore
+import typer
 
 
 app = typer.Typer()

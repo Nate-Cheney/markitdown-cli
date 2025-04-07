@@ -9,31 +9,21 @@ This repository provides a \[relatively] easy way to use MarkItDown from a CLI.
 ## Installation
 
 ``` bash
-# Insert shebang at line 1
-sed -i '1i #!/usr/local/lib/md-cli/.venv/bin/python' md-cli.py 
+# Install dependencies
+python3 -m pip install 'markitdown[all]' typer
 
-# Move and make script executable
-sudo cp md-cli.py /usr/local/bin/md-cli
-sudo chmod +x /usr/local/bin/md-cli
+# Create the executable script
+echo '#!/usr/bin/env python3' > md-cli
+cat md-cli.py >> md-cli
+chmod +x md-cli
 
-# Create /usr/local/lib/md-cli/ and copy requirements.txt
-sudo mkdir /usr/local/lib/md-cli
-sudo cp requirements.txt /usr/local/lib/md-cli
-
-# Create & activate .venv and install dependencies
-cd /usr/local/lib/md-cli
-sudo python3 -m venv .venv
-sudo source .venv/bin/activate
-pip install -r requirements.txt
-
-# Install ffmpeg
-sudo apt update && sudo apt upgrade -y
-sudo apt install ffmpeg
+# Move the script to ~/bin
+sudo mv md-cli /usr/local/bin
 ```
 
 ## Usage
 Use:
 
 ```
-md-cli convert INPUT_FILE OUTPUT_FILE
+md-cli INPUT_FILE OUTPUT_FILE
 ```
